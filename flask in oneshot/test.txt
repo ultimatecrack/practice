@@ -1,0 +1,40 @@
+php -S 127.0.0.1:8000 -t public/
+
+hasOne
+hasMany
+belongsTo
+belongsToMany
+morphMany
+morphToMany
+
+9833746989
+
+factory(App\User::class)->create();
+factory(App\User::class,5)->create();
+php artisan make:factory ArticleFactory
+php artisan make:factory ArticleFactory -m "App\Article"
+
+factory(App\Article::class, 5)->create();
+factory(App\Article::class, 5)->create(['title'=>'Override the title']);
+
+
+$user = App\User::find(1);
+$user->articles; //get articles of user id 1
+
+App\Article::find(1)->user; //get user from article
+
+
+
+$article = App\Article::first()
+$article->tags->pluck('name')
+
+
+$article = App\Article::find(5);
+$article->tags()->attach(1);
+$article->tags()->attach([1,2]);
+$article->tags()->detach(1);
+
+$tag = App\Tag::find(1)
+$article->tags()->attach($tag);
+$tag = App\Tag::findMany([1,2]);
+$article->tags()->attach($tag);

@@ -1,0 +1,21 @@
+<html>
+  {#Static files js and css #}
+  <head>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename = 'hello.js') }}"
+    ></script>
+  </head>
+
+  <input type="button" onclick="sayHello()" value="Say Hello" />
+  {#Static files js and css #}
+
+  <body>
+    <h1>Hello {{name}} {{surname}}!</h1>
+    {% for mark in marks %} {{mark}} {% if mark>50 %}
+    <h1>Your result is pass!</h1>
+    {% else %}
+    <h1>Your result is fail</h1>
+    {% endif %} {% endfor %}
+  </body>
+</html>
